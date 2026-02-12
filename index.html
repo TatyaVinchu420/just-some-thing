@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PlaySlot | Turf & Court Booking</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content container">
+        <p class="eyebrow">Book instantly • Real-time availability</p>
+        <h1>Turf & Court Booking Interface</h1>
+        <p class="hero__subtitle">
+          Reserve football turfs, badminton courts, tennis courts, and more in less than a minute.
+          Manage your schedule, avoid clashes, and get instant booking confirmation.
+        </p>
+      </div>
+    </header>
+
+    <main class="container layout">
+      <section class="panel panel--form">
+        <h2>Book a Slot</h2>
+        <form id="booking-form" novalidate>
+          <div class="grid-2">
+            <label>
+              Player Name
+              <input type="text" name="name" placeholder="e.g. Alex" required />
+            </label>
+
+            <label>
+              Phone Number
+              <input type="tel" name="phone" placeholder="e.g. +1 555 001 420" required />
+            </label>
+
+            <label>
+              Sport
+              <select name="sport" required>
+                <option value="">Select sport</option>
+                <option value="Football">Football</option>
+                <option value="Cricket">Cricket</option>
+                <option value="Badminton">Badminton</option>
+                <option value="Tennis">Tennis</option>
+                <option value="Basketball">Basketball</option>
+              </select>
+            </label>
+
+            <label>
+              Turf/Court
+              <select name="venue" required>
+                <option value="">Select venue</option>
+                <option value="Arena Turf 1">Arena Turf 1</option>
+                <option value="Arena Turf 2">Arena Turf 2</option>
+                <option value="Smash Court A">Smash Court A</option>
+                <option value="Smash Court B">Smash Court B</option>
+                <option value="Center Court">Center Court</option>
+              </select>
+            </label>
+
+            <label>
+              Date
+              <input type="date" name="date" required />
+            </label>
+
+            <label>
+              Start Time
+              <input type="time" name="startTime" required />
+            </label>
+
+            <label>
+              Duration (hrs)
+              <select name="duration" required>
+                <option value="1">1 hour</option>
+                <option value="1.5">1.5 hours</option>
+                <option value="2">2 hours</option>
+                <option value="2.5">2.5 hours</option>
+                <option value="3">3 hours</option>
+              </select>
+            </label>
+
+            <label>
+              Notes (optional)
+              <input type="text" name="notes" placeholder="Team practice, friendly match..." />
+            </label>
+          </div>
+
+          <button type="submit" class="btn">Confirm Booking</button>
+          <p class="status" id="status-message" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="panel panel--bookings">
+        <div class="panel__header">
+          <h2>Today's & Upcoming Bookings</h2>
+          <button id="clear-bookings" class="btn btn--secondary" type="button">Clear All</button>
+        </div>
+
+        <div class="stats" id="stats"></div>
+
+        <label class="filter">
+          Filter by venue
+          <select id="venue-filter">
+            <option value="all">All venues</option>
+            <option value="Arena Turf 1">Arena Turf 1</option>
+            <option value="Arena Turf 2">Arena Turf 2</option>
+            <option value="Smash Court A">Smash Court A</option>
+            <option value="Smash Court B">Smash Court B</option>
+            <option value="Center Court">Center Court</option>
+          </select>
+        </label>
+
+        <ul id="bookings-list" class="bookings-list"></ul>
+      </section>
+    </main>
+
+    <footer class="container footer">
+      <p>Built for sports venues that need a fast and reliable booking workflow.</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
